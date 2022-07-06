@@ -27,7 +27,7 @@
 
 3. 生成 DeepRec Serving Processor
 
-    当前目录下需要```libserving_processor.so```
+    需要```libserving_processor.so```
     编译详见[https://github.com/alibaba/DeepRec](https://github.com/alibaba/DeepRec)项目首页“How to Build serving library”部分。
 
 4. 生成 demo checkpoint 和 savedmodel
@@ -59,5 +59,5 @@
     ```
 
     ```sh
-    java -cp bin/:lib/\* src.main.java.Demo tensorflow.eas.Predict
+    LD_PRELOAD="libserving_processor.so" java -cp bin/:lib/\* src.main.java.Demo tensorflow.eas.Predict
     ```
