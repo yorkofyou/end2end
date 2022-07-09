@@ -48,20 +48,20 @@ class Demo {
         Predict.ArrayDataType dtype = Predict.ArrayDataType.DT_FLOAT;
         // input shape: [1, 1]
         Predict.ArrayShape arrayShape =
-        Predict.ArrayShape.newBuilder()
+            Predict.ArrayShape.newBuilder()
             .addDim(1)
             .addDim(1)
             .build();
         // input array
         Predict.ArrayProto input =
-        Predict.ArrayProto.newBuilder()
-            .addFloatVal((float)1.0)
+            Predict.ArrayProto.newBuilder()
+            .addFloatVal((float) 1.0)
             .setDtype(dtype)
             .setArrayShape(arrayShape)
             .build();
         // PredictRequest
         Predict.PredictRequest req =
-        Predict.PredictRequest.newBuilder()
+            Predict.PredictRequest.newBuilder()
             .setSignatureName("serving_default")
             .addOutputFilter("y:0")
             .putInputs("x:0", input)
@@ -79,12 +79,11 @@ class Demo {
         String s = new String(outputString);
         try {
             Predict.PredictResponse resp =
-            Predict.PredictResponse.newBuilder()
+                Predict.PredictResponse.newBuilder()
                 .mergeFrom(outputString)
                 .build();
             System.out.println(resp.toString());
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.err.println("parse response error");
         }
 

@@ -1,7 +1,13 @@
 import sys
 import ctypes
 
-from predict_pb2 import ArrayDataType, ArrayShape, ArrayProto, PredictRequest, PredictResponse
+from predict_pb2 import (
+    ArrayDataType,
+    ArrayShape,
+    ArrayProto,
+    PredictRequest,
+    PredictResponse,
+)
 
 model_config = '{ \
     "omp_num_threads": 4, \
@@ -20,6 +26,7 @@ model_config = '{ \
 }'
 
 if __name__ == "__main__":
+    # Load shared library
     processor = ctypes.cdll.LoadLibrary("libserving_processor.so")
     model_entry = ""
     state = ctypes.c_int(0)
@@ -58,7 +65,13 @@ if __name__ == "__main__":
     output_ptr = ctypes.pointer(output)
     output_size = ctypes.c_int(0)
     output_size_ptr = ctypes.pointer(output_size)
-    processor.process.argtypes = [ctypes.c_void_p, ctypes.c_void_p, ctypes.c_int, ctypes.POINTER(ctypes.c_void_p), ctypes.c_void_p]
+    processor.process.argtypes = [
+        ctypes.c_void_p,
+        ctypes.c_void_p,
+        ctypes.c_int,
+        ctypes.POINTER(ctypes.c_void_p),
+        ctypes.c_void_p,
+    ]
     processor.process.restype = ctypes.c_int
     state = processor.process(model, buffer, size, output_ptr, output_size_ptr)
 

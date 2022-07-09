@@ -10,7 +10,7 @@
 
 1. 根据proto文件生成对应py文件
 
-    根据 [Protobuf Docs](https://github.com/protocolbuffers/protobuf/tree/main/python#installation) 安装 Python Protocol Buffers runtime library
+    根据 [Protobuf Docs](https://github.com/protocolbuffers/protobuf/tree/48cb18e5c419ddd23d9badcfe4e9df7bde1979b2/python#installation) 安装 Python Protocol Buffers runtime library
     ```sh
     protoc --python_out=../python -I../proto predict.proto
     ```
@@ -18,7 +18,7 @@
 2. 生成 DeepRec Serving Processor
 
     需要```libserving_processor.so```
-    编译详见[https://github.com/alibaba/DeepRec](https://github.com/alibaba/DeepRec)项目首页“How to Build serving library”部分。
+    编译详见 [https://github.com/alibaba/DeepRec](https://github.com/alibaba/DeepRec) 项目首页“How to Build serving library”部分。
 
 3. 生成 demo checkpoint 和 savedmodel
 
@@ -31,7 +31,7 @@
     python ../simple_model.py
     ```
 
-4. 设置Demo.java中的`saved_model_dir` and `checkpoint_dir`
+4. 设置demo.py中的`saved_model_dir` and `checkpoint_dir`
 
     ```python
     model_config = '{ \
