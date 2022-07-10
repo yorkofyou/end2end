@@ -18,7 +18,7 @@
 2. 生成 DeepRec Serving Processor
 
     需要```libserving_processor.so```
-    编译详见 [https://github.com/alibaba/DeepRec](https://github.com/alibaba/DeepRec) 项目首页“How to Build serving library”部分。
+    编译详见[https://github.com/alibaba/DeepRec](https://github.com/alibaba/DeepRec)项目首页“How to Build serving library”部分。
 
 3. 生成 demo checkpoint 和 savedmodel
 
@@ -46,5 +46,5 @@
 5. 运行
 
     ```sh
-    python demo.py
+    LD_PRELOAD=/path/to/libserving_processor.so python demo.py
     ```

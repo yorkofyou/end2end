@@ -22,6 +22,8 @@
     go install github.com/golang/protobuf/protoc-gen-go@v1.2.0
     ```
 
+    添加$GOPATH/bin到PATH环境变量中
+
     根据proto文件生成go文件
     ```sh
     protoc --go_out=../go/tensorflow_eas -I../proto predict.proto
@@ -36,7 +38,7 @@
 3. 生成 DeepRec Serving Processor
 
     需要```libserving_processor.so```
-    编译详见 [https://github.com/alibaba/DeepRec](https://github.com/alibaba/DeepRec) 项目首页“How to Build serving library”部分。
+    编译详见[https://github.com/alibaba/DeepRec](https://github.com/alibaba/DeepRec)项目首页“How to Build serving library”部分。
 
 4. 生成 demo checkpoint 和 savedmodel
 
@@ -65,5 +67,5 @@
 
     ```sh
     go build demo.go
-    LD_PRELOAD="libserving_processor.so" ./demo
+    LD_PRELOAD=/path/to/libserving_processor.so ./demo
     ```
