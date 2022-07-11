@@ -4,7 +4,6 @@ package main
 #cgo CFLAGS: -I${SRCDIR}
 #cgo LDFLAGS: -L${SRCDIR} -lserving_processor -lstdc++
 #include <stdlib.h>
-#include <dlfcn.h>
 #include "processor.h"
 */
 import "C"
@@ -69,7 +68,7 @@ func main() {
 	output := unsafe.Pointer(nil)
 	defer C.free(output)
 	outputSize := C.int(0)
-	state = C.process(model, unsafe.Pointer(&buffer[0]), size, &output, &outputSize)
+	state = C.process(model, unsafe.Pointer(&buffer[0]), size, output, &outputSize)
 
 	// parse response
 	outputString := C.GoBytes(output, outputSize)
