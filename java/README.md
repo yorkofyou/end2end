@@ -11,7 +11,7 @@
 1. 根据proto文件生成对应java文件
 
     ```sh
-    mkdir lib
+    mkdir bin lib
     ```
 
     lib目录下需要```protobuf-java.jar```，根据 [Protobuf Docs](https://github.com/protocolbuffers/protobuf/tree/48cb18e5c419ddd23d9badcfe4e9df7bde1979b2/java#build-from-source) 生成
