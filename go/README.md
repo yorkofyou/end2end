@@ -65,7 +65,6 @@
 
 6. 编译和运行
 
-    修改demo.go中LDFLAGS为processor的路径
     ```sh
     go build .
     LD_PRELOAD=/path/to/libserving_processor.so ./demo
